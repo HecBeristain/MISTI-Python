@@ -26,18 +26,18 @@ def menu():
 
         if opcion == "1":
             print("\nTU VAS A CIFRAR UN MENSAJE CON ATABASH")
-            def main():
-                mensaje = str(input("\nIngrese tu mensaje a cifrar: ").lower())
-                print("Tu mensaje cifrado es: ", atabash(mensaje).upper())
-            if __name__ == '__main__':
-                main()
+            #def main():
+            mensaje = str(input("\nIngrese tu mensaje a cifrar: ").lower())
+            print("Tu mensaje cifrado es: ", atabash(mensaje).upper())
+            #if __name__ == '__main__':
+            #main()
         elif opcion == "2":
             print("\nTU VAS A DESCIFRAR UN MENSAJE CON ATABASH")
-            def main():
-                mensaje = str(input("\nIngrese tu mensaje a descifrar: ").lower())
-                print("Tu mensaje descifrado es: ", atabash(mensaje).upper())
-            if __name__ == '__main__':
-                main()
+            #def main():
+            mensaje = str(input("\nIngrese tu mensaje a descifrar: ").lower())
+            print("Tu mensaje descifrado es: ", atabash(mensaje).upper())
+            #if __name__ == '__main__':
+            #main()
         elif opcion == "3":
             print("Adios")
             break
