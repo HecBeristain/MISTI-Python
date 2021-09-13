@@ -3,9 +3,10 @@ Escriba un programa, que dado un menú,el usuario pueda seleccionar la figura ge
 para obtener el área de su selección (rectangulo, triángulo, rombo y trapecio).
 """
 #Importar los codificadores
-import PlayFair
-import Cesar
 import Abatash
+import Cesar
+import PlayFair
+import ColumnarSimple
 
 #Encabezado
 print("\x1b[1;33m"+"\t====================================================")
@@ -34,16 +35,15 @@ while int(instruccion) != 6:
     print("\x1b[6;32m"+"\t                6.- FIN\n")
 
     instruccion = input("\x1b[1;31m"+"\t                Opcion: ")
-    try:
-        if int(instruccion) == 6: continue     #Salta al condicional del while si recibe una instrucción de paro
-        #elif instruccion == 5: ColumnarSimple.menu()
-        elif int(instruccion) == 4: PlayFair.menu()
-        #elif int(instruccion) == 3: Bellaso.menu()
-        elif int(instruccion) == 2: Cesar.menu()
-        elif int(instruccion) == 1: Abatash.menu()
-    except:
-        print(str(instruccion) + " no es una opcion valida, intentalo de nuevo", end="\n")
-        instruccion = 0
-
+    #try:
+    if int(instruccion) == 6: continue     #Salta al condicional del while si recibe una instrucción de paro
+    elif int(instruccion) == 5: ColumnarSimple.menu()
+    elif int(instruccion) == 4: PlayFair.menu()
+    #elif int(instruccion) == 3: Bellaso.menu()
+    elif int(instruccion) == 2: Cesar.menu()
+    elif int(instruccion) == 1: Abatash.menu()
+    #except:
+    #    print(str(instruccion) + " no es una opcion valida, intentalo de nuevo", end="\n")
+    #    instruccion = 0
 
 #Fin del Menu
