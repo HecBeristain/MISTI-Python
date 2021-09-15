@@ -1,40 +1,43 @@
+filas = 0
+columnas = 0
+texto = ""
 
-def cifrar():
-    matriz = [] # Lista para operar los caracteres
+def userInputs ():
+    global filas,columnas,texto
 
-    #Recibe instrucciones del usuario
-    textoPlano = input("¿Cual es el mensaje?: ").upper() #En mayusculas
-    textoPlano = ''.join(filter(str.isalpha, textoPlano)) #Filtra los caracteres alfabeticos
+    texto = input("¿Cual es el mensaje?: ")     #Recibe instrucciones del usuario
+    texto = ''.join(filter(str.isalpha, texto)) #Filtra los caracteres alfabeticos
     filas = int(input("¿Cuantas filas?: "))
     columnas = int(input("¿Cuantas columnas?: "))
 
-    #Asegura que el mensaje quepa en la matriz
-    if filas*columnas >= len(textoPlano): matrizSize = filas*columnas
-    elif len(textoPlano) % columnas: matrizSize = len(textoPlano) + (columnas - len(textoPlano) % columnas)
-    else: matrizSize = len(textoPlano)
-    # El modulo nos dice si faltan espacios para la matriz cuadrada : (len(textoPlano) % columnas)
-    # Restar este valor del numero de columnas no da los espacios para rellenar: (columnas - % )
+    return texto
 
-    textoPlano = textoPlano.ljust(matrizSize,'X') # Agrega caracteres para completar la matriz cuadrada
+def columnar (dimension,s):
+    matriz = []  # Lista para operar los caracteres
 
-    for i in textoPlano: matriz.append(i) #Texto a lista de caracteres
-    matriz = [matriz[i:i+columnas] for i in range(0, len(matriz), columnas)] #Lista 2D con columnas de usuario
+    for i in texto: matriz.append(i) #Texto a lista de caracteres
+    matriz = [matriz[i:i+dimension] for i in range(0, len(matriz), dimension)] #Lista 2D con input de usuario
     matriz = [*zip(*matriz)] # Transpone la lista
 
-    print(' '.join(map(''.join, matriz))) #Imprime el texto cifrado
+    print(s.join(map(''.join, matriz))) #Imprime el texto cifrado/descifrado
+
+def cifrar():
+    global filas,columnas,texto
+    texto = userInputs().upper() #En mayusculas
+
+    #Asegura que el mensaje quepa en la matriz
+    if filas*columnas >= len(texto): matrizSize = filas*columnas
+    else: matrizSize = len(texto) + (columnas - len(texto) % columnas)
+    """ El modulo nos dice si faltan espacios para la matriz cuadrada : (len(texto) % columnas)
+        Restar este valor del numero de columnas no da los espacios para rellenar: (columnas - % ) """
+
+    texto = texto.ljust(matrizSize,'X') # Agrega caracteres para completar la matriz cuadrada
+    columnar(columnas," ")
 
 def descifrar():
-    matriz = [] # Lista para operar los caracteres
-
-    #Recibe instrucciones del usuario
-    textoCifrado = input("¿Cual es el mensaje?: ").casefold() #En minusculas
-    filas = int(input("¿Cuantas filas?: "))
-    textoCifrado = ''.join(filter(str.isalpha, textoCifrado)) #Filtra los caracteres alfabeticos
-
-    for i in textoCifrado: matriz.append(i) #Texto a lista de caracteres
-    matriz = [matriz[i:i+filas] for i in range(0, len(matriz), filas)] #Lista 2D con columnas de usuario
-    matriz = [*zip(*matriz)] # Transpone la lista
-    print(''.join(map(''.join, matriz))) #Imprime el texto cifrado
+    global filas,texto
+    texto = userInputs().casefold() #En minusculas
+    columnar(filas,"")
 
 def menu():
     instruccion = ""
