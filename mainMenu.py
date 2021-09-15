@@ -22,7 +22,7 @@ while int(instruccion) != 6:
     print("\x1b[6;32m" + "\t            Beristain Bermudez Hector")
     print("\x1b[6;32m" + "\t            Del Angel Aquino Eduardo")
     print("\x1b[6;32m" + "\t          Espinoza Rivera Jozic Manuel")
-    print("\x1b[6;32m" + "\t                  Suarez Daniel")
+    print("\x1b[6;32m" + "\t         Suarez Rodriguez Daniel Hassan")
     print("\x1b[1;31m" + "\t====================================================")
     print("\x1b[1;33m" + "\t====================================================")
     print("\x1b[6;36m" + "\t                   CIFRADORES")
